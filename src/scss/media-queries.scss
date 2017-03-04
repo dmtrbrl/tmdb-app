@@ -6,8 +6,8 @@ $tablet-l-width: 1024px;
 $desktop-width:  1200px;
 
 // Media
-@mixin mobile-ls-only{
-	@media (min-width: #{$phone-xs-width}) and (max-width: #{$tablet-p-width - 1px}){
+@mixin mobile-only{
+	@media (max-width: #{$tablet-p-width - 1px}){
 		@content;
 	}
 }

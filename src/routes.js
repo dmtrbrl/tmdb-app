@@ -62,4 +62,13 @@ const router =  new VueRouter({
   linkActiveClass: 'is-active'
 });
 
+router.beforeEach((to, from, next) => {
+  // Toggle mobile nav
+  if(document.querySelector('.nav__hamburger--active')){
+    document.querySelector('.nav__hamburger').classList.remove('nav__hamburger--active');
+    document.querySelector('.nav__list').classList.remove('nav__list--active');
+  }
+  next();
+});
+
 export default router;

@@ -202,13 +202,14 @@ img{
     display: flex;
     position: relative;
     z-index: 5;
-    width: calc(100% - 55px);
+    width: calc(100% - 110px);
     position: fixed;
     top: 0;
-    right: 0;
+    right: 55px;
     @include tablet-min{
       position: relative;
       height: 75px;
+      right: 0;
     }
     &-input{
       display: block;
@@ -260,7 +261,7 @@ img{
 }
 .main{
   position: relative;
-  padding: 100px 0 0;
+  padding: 50px 0 0;
   @include tablet-min{
     width: calc(100% - 95px);
     padding: 75px 0 0;

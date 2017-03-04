@@ -5,6 +5,11 @@
         <use xlink:href="#svgLogo"></use>
       </svg>
     </router-link>
+    <div class="nav__hamburger" @click="toggleNav">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
     <ul class="nav__list">
       <li class="nav__item" v-for="item in listTypes" v-if="item.isCategory">
         <router-link class="nav__link" :to="{name: 'home-category', params: {category: item.query}}">
@@ -54,6 +59,10 @@ export default {
     },
     requestToken(){
       eventHub.$emit('requestToken');
+    },
+    toggleNav(){
+      document.querySelector('.nav__hamburger').classList.toggle('nav__hamburger--active');
+      document.querySelector('.nav__list').classList.toggle('nav__list--active');
     }
   },
   created(){
@@ -105,19 +114,87 @@ export default {
       transform: scale(1.04);
     }
   }
+  &__hamburger{
+    display: block;
+    position: fixed;
+    width: 55px;
+    height: 50px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background: $c-white;
+    z-index: 10;
+    border-left: 1px solid $c-light;
+    @include tablet-min{
+      display: none;
+    }
+    .bar{
+      position: absolute;
+      width: 23px;
+      height: 1px;
+      background: rgba($c-dark, 0.5);
+      transition: all 300ms ease;
+      &:nth-child(1){
+        left: 16px;
+        top: 17px;
+      }
+      &:nth-child(2){
+        left: 16px;
+        top: 25px;
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          width: 23px;
+          height: 1px;
+          background: transparent;
+          transition: all 300ms ease;
+        }
+      }
+      &:nth-child(3){
+        right: 15px;
+        top: 33px;
+      }
+    }
+    &--active{
+      .bar{
+        &:nth-child(1),
+        &:nth-child(3){
+          width: 0;
+        }
+        &:nth-child(2) {
+          transform: rotate(-45deg);
+        }
+        &:nth-child(2):after {
+          transform: rotate(-90deg);
+          background: rgba($c-dark, 0.5);
+        }
+      }
+    }
+  }
   &__list{
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: center;
     width: 100%;
-    display: flex;
     position: fixed;
     left: 0;
     top: 50px;
     background: $c-white;
     border-top: 1px solid $c-light;
+    @include mobile-only{
+      font-size: 0;
+      display: none;
+      height: calc(100vh - 50px);
+      text-align: left;
+      &--active{
+        display: block;
+      }
+    }
     @include tablet-min{
+      display: flex;
       background: transparent;
       position: relative;
       display: block;
@@ -127,13 +204,17 @@ export default {
     }
   }
   &__item{
-    width: 20%;
-    &:not(:first-child){
-      border-left: 1px solid $c-light;
+    @include mobile-only{
+      display: inline-block;
+      text-align: center;
+      width: 50%;
+      border-bottom: 1px solid $c-light;
+      &:nth-child(odd){
+        border-right: 1px solid $c-light;
+      }
     }
     @include tablet-min{
       width: 100%;
-      border-left: 0;
       border-bottom: 1px solid $c-light;
       &--profile{
         position: fixed;
@@ -147,7 +228,6 @@ export default {
   }
   &__link{
     width: 100%;
-    height: 50px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -161,8 +241,9 @@ export default {
     transition: color 0.5s ease, background 0.5s ease;
     position: relative;
     cursor: pointer;
-    @include mobile-ls-min{
-      font-size: 8px;
+    @include mobile-only{
+      font-size: 10px;
+      padding: 20px 0;
     }
     @include tablet-min{
       width: 95px;
@@ -175,8 +256,8 @@ export default {
       }
     }
     &-icon{
-      width: 15px;
-      height: 15px;
+      width: 20px;
+      height: 20px;
       margin-bottom: 3px;
       fill: rgba($c-dark, 0.7);
       transition: fill 0.5s ease;
