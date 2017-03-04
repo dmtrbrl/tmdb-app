@@ -226,6 +226,7 @@ export default {
         width: 75px;
         height: 75px;
         border-bottom: 0;
+        border-left: 1px solid $c-light;
       }
     }
   }
