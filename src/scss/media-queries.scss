@@ -1,0 +1,48 @@
+// Media queries settings
+
+$phone-xs-width: 480px;
+$tablet-p-width: 768px;
+$tablet-l-width: 1024px;
+$desktop-width:  1200px;
+
+// Media
+@mixin mobile-ls-only{
+	@media (min-width: #{$phone-xs-width}) and (max-width: #{$tablet-p-width - 1px}){
+		@content;
+	}
+}
+@mixin mobile-ls-min{
+  @media (min-width: #{$phone-xs-width}){
+		@content;
+	}
+}
+@mixin tablet-only{
+	@media (min-width: #{$tablet-p-width}) and (max-width: #{$desktop-width - 1px}){
+		@content;
+	}
+}
+@mixin tablet-min{
+	@media (min-width: #{$tablet-p-width}){
+		@content;
+	}
+}
+@mixin tablet-portrait-only{
+	@media (min-width: #{$tablet-p-width}) and (max-width: #{$tablet-l-width - 1px}){
+		@content;
+	}
+}
+@mixin tablet-landscape-min{
+	@media (min-width: #{$tablet-l-width}){
+		@content;
+	}
+}
+@mixin desktop-min{
+	@media (min-width: #{$desktop-width}){
+		@content;
+	}
+}
+@mixin retina{
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
+    @content;
+  }
+}
