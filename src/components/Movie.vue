@@ -1,6 +1,6 @@
 <template>
   <section class="movie">
-    <div class="movie__container" v-if="loaded">
+    <div class="movie__container" v-if="movieLoaded">
       <header class="movie__header" :class="{'movie__header--page': type=='page'}" :style="{ 'background-image': 'url(' + movieBackdropSrc + ')' }">
         <div class="movie__wrap movie__wrap--header" :class="{'movie__wrap--page': type=='page'}">
           <figure class="movie__poster">
@@ -77,11 +77,11 @@ export default {
       favorite: ''
     }
   },
-  computed: {
-    loaded(){
-      return this.movieLoaded ? true : false;
-    }
-  },
+  // computed: {
+  //   loaded(){
+  //     return this.movieLoaded ? true : false;
+  //   }
+  // },
   methods: {
     fetchMovie(id){
       axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${storage.apiKey}&language=en-US`)
@@ -90,9 +90,10 @@ export default {
           this.movie = movie;
           this.poster();
           this.backdrop();
-          this.movieLoaded = true;
           if(this.userLoggedIn){
             this.checkIfInFavorites(movie.id);
+          } else {
+            this.movieLoaded = true;
           }
           // Push state
           if(storage.createMoviePopup){
@@ -128,6 +129,7 @@ export default {
       .then(function(resp){
           this.favorite = resp.data.favorite;
           this.favoriteChecked = true;
+          this.movieLoaded = true;
       }.bind(this))
     },
     toggleFavorite(){
