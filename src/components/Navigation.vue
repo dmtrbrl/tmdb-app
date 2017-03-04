@@ -182,15 +182,18 @@ export default {
     position: fixed;
     left: 0;
     top: 50px;
-    background: $c-white;
+    background: rgba($c-white, 0.98);
     border-top: 1px solid $c-light;
     @include mobile-only{
       font-size: 0;
-      display: none;
+      opacity: 0;
+      visibility: hidden;
       height: calc(100vh - 50px);
+      transition: all 0.5s ease;
       text-align: left;
       &--active{
-        display: block;
+        opacity: 1;
+        visibility: visible;
       }
     }
     @include tablet-min{
