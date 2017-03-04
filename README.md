@@ -1,6 +1,12 @@
 # tmdb-app
 
-> The Movie Database app
+The Movie Database app. Made with Vue.js
+
+![](https://github.com/dmtrbrl/tmdb-app/blob/master/docs/demo.gif)
+
+## Demo
+[Live DEMO] (http://tmdb.dmytrobarylo.com/)
+
 
 ## Build Setup
 
