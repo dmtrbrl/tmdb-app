@@ -104,7 +104,6 @@ export default {
           document.title = this.movie.title + storage.pageTitlePostfix;
       }.bind(this))
       .catch(function(error) {
-        console.log('error');
         this.$router.push({ name: '404' });
       }.bind(this));
     },

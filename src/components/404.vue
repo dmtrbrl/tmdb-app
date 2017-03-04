@@ -19,16 +19,16 @@ export default {
 @import "./src/scss/variables";
 @import "./src/scss/media-queries";
 .not-found{
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 100px);
   background: url('~assets/pulp-fiction.jpg') no-repeat 50% 50%;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  @include tablet-min{
+    height: calc(100vh - 75px);
+  }
   &:before{
     content: "";
     display: block;

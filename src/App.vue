@@ -108,6 +108,10 @@ export default {
     // Router After Leave
     afterLeave(){
       document.querySelector('body').scrollTop = 0;
+    },
+    // Detect if touch device
+    isTouchDevice() {
+      return 'ontouchstart' in document.documentElement;
     }
   },
   created(){
@@ -117,6 +121,9 @@ export default {
     eventHub.$on('setSearchQuery', this.setSearchQuery);
     eventHub.$on('requestToken', this.requestToken);
     eventHub.$on('setUserStatus', this.setUserStatus);
+    if (this.isTouchDevice()) {
+      document.querySelector('body').classList.add('touch');
+    }
   }
 }
 </script>
@@ -206,7 +213,7 @@ img{
     &-input{
       display: block;
       width: 100%;
-      padding: 15px 20px 15px 50px;
+      padding: 15px 20px 15px 45px;
       outline: none;
       border: 0;
       background-color: transparent;
@@ -275,9 +282,14 @@ img{
   color: $c-dark;
   background: transparent;
   outline: none;
+  transition: background 0.5s ease, color 0.5s ease;
   @include tablet-min{
     font-size: 12px;
     padding: 6px 20px 5px 20px;
+  }
+  body:not(.touch) &:hover{
+    background: $c-dark;
+    color: $c-white;
   }
 }
 

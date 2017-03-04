@@ -97,6 +97,9 @@ export default {
           if(this.type == 'page'){
             document.title = this.pageTitle;
           }
+      }.bind(this))
+      .catch(function(error) {
+        this.$router.push({ name: '404' });
       }.bind(this));
     },
     loadMore(){
@@ -124,7 +127,7 @@ export default {
           this.movies = movies;
           this.pages = pages;
           if(this.currentPage > pages){
-            this.currentPage -= 1; 
+            this.currentPage -= 1;
           }
           this.results = results;
         }.bind(this));
