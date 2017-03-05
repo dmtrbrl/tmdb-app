@@ -28,7 +28,7 @@ export default {
   methods: {
     poster() {
       if(this.movie.poster_path){
-        return 'https://image.tmdb.org/t/p/w370_and_h556_bestv1' + this.movie.poster_path;
+        return 'https://image.tmdb.org/t/p/w370_and_h556_bestv2' + this.movie.poster_path;
       } else {
         this.noImage = true;
       }
