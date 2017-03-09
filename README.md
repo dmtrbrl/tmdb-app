@@ -2,7 +2,7 @@
 
 A Vue.js project. [Live Demo Here] (http://tmdb.dmytrobarylo.com/)
 
-![](https://github.com/dmtrbrl/tmdb-app/blob/master/docs/demo.gif)
+![](http://tmdb.dmytrobarylo.com/demo.gif)
 
 ## Build Setup
 
