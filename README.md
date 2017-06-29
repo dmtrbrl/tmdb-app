@@ -1,8 +1,6 @@
 # The Movie Database App
 
-A Vue.js project. [Live Demo Here] (http://tmdb.dmytrobarylo.com/)
-
-![](http://tmdb.dmytrobarylo.com/demo.gif)
+A Vue.js project.
 
 ## Build Setup
 
@@ -18,7 +16,7 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-This app uses [history mode] (https://router.vuejs.org/en/essentials/history-mode.html)
+This app uses [history mode](https://router.vuejs.org/en/essentials/history-mode.html)
 
 ## License
 [MIT](https://github.com/dmtrbrl/tmdb-app/blob/master/LICENSE)
