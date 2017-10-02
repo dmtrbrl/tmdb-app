@@ -29,7 +29,7 @@ let routes = [
       'page-router-view': require('./components/MoviePage.vue')
     },
     beforeEnter: (to, from, next) => {
-      if(history.state && history.state.popup){
+      if(history.state && history.state.popup && from.name){
         eventHub.$emit('openMoviePopup', to.params.id, false);
         return;
       }
