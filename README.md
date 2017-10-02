@@ -2,6 +2,12 @@
 
 A Vue.js project.
 
+![](https://github.com/dmtrbrl/tmdb-app/blob/master/docs/demo.gif)
+
+## Demo
+
+[TMDB Vue App](https://tmdb-vue-app.herokuapp.com/)
+
 ## Build Setup
 
 ``` bash
