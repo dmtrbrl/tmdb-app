@@ -1,7 +1,7 @@
 {
   "name": "tmdb-app",
   "description": "The Movie Database app ",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Dmytro Barylo",
   "private": true,
   "scripts": {
