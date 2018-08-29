@@ -81,6 +81,7 @@ export default {
       storage.moviePopupOnHistory = e.state ? e.state.hasOwnProperty('popup') : false;
       if(!storage.moviePopupOnHistory){
         this.moviePopupIsVisible = false;
+        document.querySelector('body').classList.remove('hidden');
         document.title = storage.backTitle;
       }
     },
