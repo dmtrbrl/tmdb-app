@@ -1,5 +1,5 @@
 let storage = {
-  apiKey: 'a70dbfe19b800809dfdd3e89e8532c9e',
+  apiKey: 'YOUR_TMDB_API_KEY',
   sessionId: localStorage.getItem('session_id') || null,
   userId: localStorage.getItem('user_id') || null,
   pageTitlePostfix: ' — ' + document.title,
